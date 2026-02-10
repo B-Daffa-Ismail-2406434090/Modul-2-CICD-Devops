@@ -43,7 +43,7 @@ class HomePageFunctionalTest {
         String pageTitle = driver.getTitle();
 
         // Verify
-        assertEquals("Product List", pageTitle);
+        assertEquals("ADV Shop", pageTitle);
     }
 
     @Test
