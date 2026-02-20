@@ -18,6 +18,6 @@ Modul 2 https://modul-2-cicd-devops-ae8bdcd45b5b.herokuapp.com/product/list
 
 Refleksi
 
-Sonarcloud menemukan isu code quality berupa security hotspot. Penjelasan isunya cukup minim sehingga diperlukan google searching. Hasil searching menemukan bahwa isunya disebabkan oleh tidak adanya verifikasi metadata dalam bentuk file verification-metadata.xml. Fixnya adalah dengan mengenerate file tersebut menggunakan command `./gradlew --write-verification-metadata sha256 build`. Setelah commit dan push filenya, isu akhirnya hilang.
+Sonarcloud menemukan isu code quality berupa security hotspot. Penjelasan isunya cukup minim sehingga diperlukan google searching. Hasil searching menemukan bahwa isunya disebabkan oleh tidak adanya verifikasi metadata dalam bentuk file verification-metadata.xml. Fixnya adalah dengan mengenerate file tersebut menggunakan command `./gradlew --write-verification-metadata sha256 build`. Setelah commit dan push filenya, isu akhirnya hilang. NOTES: fix dilakukan di main karena sonarcloud tidak membolehkan melihat isu di branch selain main.
 
 Berdasarkan script ci yang telah dibikin serta settings di Heroku, sudah bisa dibilang implementasi cicd proyek ini memenuhi definisi. CI jalan untuk melakukan pengecekan apakah code berkualitas melalui sonarcloud dan apakah terintegrasi dengan benar melalui tests. Lalu, proyek hanya akan di redeploy oleh Heroku jika pass checks github actions script ci.
