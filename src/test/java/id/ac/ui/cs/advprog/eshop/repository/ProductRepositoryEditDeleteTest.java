@@ -36,13 +36,11 @@ class ProductRepositoryEditDeleteTest {
         edited.setProductQuantity(20);
 
         Product result = productRepository.edit(edited);
-        assertNotNull(result);
         assertEquals(id, result.getProductId());
         assertEquals("NewName", result.getProductName());
         assertEquals(20, result.getProductQuantity());
 
         Product saved = productRepository.findById(id);
-        assertNotNull(saved);
         assertEquals("NewName", saved.getProductName());
     }
 
@@ -81,5 +79,32 @@ class ProductRepositoryEditDeleteTest {
 
         productRepository.delete("noSuchId");
         assertNotNull(productRepository.findById(id));
+    }
+
+    @Test
+    void testUpdateSecondProductInList() {
+        Product first = new Product();
+        first.setProductName("First");
+        first.setProductQuantity(1);
+        productRepository.create(first);
+
+        Product second = new Product();
+        second.setProductName("Second");
+        second.setProductQuantity(2);
+        productRepository.create(second);
+
+        String secondId = second.getProductId();
+
+        Product edited = new Product();
+        edited.setProductId(secondId);
+        edited.setProductName("SecondEdited");
+        edited.setProductQuantity(20);
+
+        Product result = productRepository.edit(edited);
+        assertEquals(secondId, result.getProductId());
+        assertEquals("SecondEdited", result.getProductName());
+
+        Product saved = productRepository.findById(secondId);
+        assertEquals("SecondEdited", saved.getProductName());
     }
 }
