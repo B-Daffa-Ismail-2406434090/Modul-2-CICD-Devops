@@ -89,3 +89,10 @@ sonar {
     property("sonar.organization", "b-daffa-ismail-2406434090")
   }
 }
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}

@@ -5,20 +5,6 @@ on:
   pull_request:
 
 jobs:
-  test:
-    name: Run tests
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Check out the Git repository
-        uses: actions/checkout@v4
-      - name: Set up Java toolchain
-        uses: actions/setup-java@v4
-        with:
-          distribution: "temurin"
-          java-version: "21"
-          cache: "gradle"
-      - name: Run unit tests
-        run: ./gradlew test
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
@@ -46,4 +32,4 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonar --info
+        run: run: ./gradlew clean test jacocoTestReport sonar --info
