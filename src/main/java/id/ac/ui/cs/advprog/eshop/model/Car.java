@@ -1,10 +1,10 @@
-package main.java.id.ac.ui.cs.advprog.eshop.model;
-
+package id.ac.ui.cs.advprog.eshop.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class Car {
     private String carId;
     private String carName;

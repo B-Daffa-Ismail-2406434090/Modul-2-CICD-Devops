@@ -90,9 +90,9 @@ sonar {
   }
 }
 
-jacocoTestReport {
+tasks.jacocoTestReport {
     reports {
-        xml.required = true
-        html.required = true
+        xml.required.set(true)
+        html.required.set(true)
     }
 }

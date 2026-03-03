@@ -1,6 +1,7 @@
-package main.java.id.ac.ui.cs.advprog.eshop.service;
+package id.ac.ui.cs.advprog.eshop.service;
 
 import id.ac.ui.cs.advprog.eshop.model.Car;
+import id.ac.ui.cs.advprog.eshop.service.CarService;
 import id.ac.ui.cs.advprog.eshop.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,11 +40,13 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void update(String carId, Car car) {
-        // TODO Auto-generated method stub carRepository.update(carId, car);
+        // TODO Auto-generated method stub
+        carRepository.update(carId, car);
     }
 
     @Override
     public void deleteCarById(String carId) {
-        // TODO Auto-generated method stub carRepository.delete(carId);
+        // TODO Auto-generated method stub
+        carRepository.delete(carId);
     }
 }
