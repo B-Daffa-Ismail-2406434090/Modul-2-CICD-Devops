@@ -1,12 +1,18 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
 
-private List<Product>products;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OrderTest {
+    private List<Product> products;
+
     @BeforeEach
     void setUp() {
         this.products = new ArrayList<>();
@@ -59,7 +65,7 @@ public class OrderTest {
 
     @Test
     void testCreateOrderInvalidStatus() {
-        assert Throws(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b", this.products, 1708560000L,
                     "Safira Sudrajat", "MEOW");
         });
